@@ -49,9 +49,3 @@ class User(object):
         return self.food_recipe
     
 
-chris = User()
-print(chris.create_food_recipe("fired eggs","eggs, oil, fire"))
-print(chris.view("fired eggs"))
-print(chris.update("fired eggs","fried eggs"))
-print(chris.update_inst("fried eggs","boil in hot water"))
-print(chris.delete("fried eggs")) 
