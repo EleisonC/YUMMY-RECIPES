@@ -4,14 +4,15 @@ class User(object):
     def __init__(self):
         self.food_recipe = {}
        
-    def create_food_recipe(self, name,instructions):
+    def create_food_recipe(self, name,instructions=""" """):
         """
         this method allows user to create a food recipe and it's instructions 
         """
         
 
         if name not in self.food_recipe.keys():
-            self.food_recipe[name] = [instructions]
+            instructions = instructions.split("\r\n")
+            self.food_recipe[name] = instructions
         else:
             return "Food recipe already exists"
         return self.food_recipe
