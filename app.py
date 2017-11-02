@@ -19,6 +19,10 @@ def is_logged_in(f):
 
     return wrap
 
+@app.route("/")
+def start():
+    return redirect(url_for("login"))
+
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
     """ Route to the signup page - that displays the registration page """
@@ -75,7 +79,7 @@ def update(name):
 def remove(name):
     man.delete(name)
     return redirect(url_for('user'))
-@app.route('/')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None 
