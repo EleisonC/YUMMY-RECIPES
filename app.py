@@ -75,7 +75,7 @@ def update(name):
 def remove(name):
     man.delete(name)
     return redirect(url_for('user'))
-
+@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None 
