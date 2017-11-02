@@ -1,0 +1,26 @@
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.col-1{
+    width: 50%;
+}
+.col-2{
+    width: 50%;
+    
+}
+.col-2 a button{
+    margin-left: 70%;
+    margin-top: -1%;
+}
+.col-2 h2{
+    margin-left: 60%;
+}
+.col-4{
+    border: 3px solid;
+    margin-top: 4%;
+    background-color: burlywood;
+    width: 100%;
+}
