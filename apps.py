@@ -35,11 +35,22 @@ def register():
             return redirect(url_for('login'))
     return render_template('signup.html', error=error)
 
+
 @app.route('/user', methods=['GET', 'POST'])
 @is_logged_in
 def user():
-    food = man.food_recipe
+    food = man.categories
     return render_template("user.html", food = food)
+
+@app.route('/add_category',methods=['GET','POST'])
+@is_logged_in
+def add_category():
+    if request.method == "POST":
+        name = request.form['category']
+        if name:
+            man.create_categories(name)
+            return redirect(url_for('user'))
+    return render_template('add_cat.html')
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
 @is_logged_in
@@ -47,10 +58,19 @@ def add_food_recipe():
     if request.method == "POST":
         name = request.form['name']
         instructions = request.form['instructions']
-        if name and instructions:
-            man.create_food_recipe(name,instructions)
+        categorys = request.form['category']
+        if categorys and name and instructions:
+            man.create_food_recipe(categorys,name,instructions)
             return redirect(url_for('user'))
     return render_template('add_item.html')
+
+@app.route('/category/<name>')
+@is_logged_in
+def category(name):
+    
+    foods = man.food_recipe
+    
+    return render_template('categories.html', foods=foods, name=name)
 
 
 
@@ -73,11 +93,28 @@ def update(name):
         
     
     return render_template('update.html', name=name)
-
+@app.route('/update_category/<name>', methods=['GET','POST'])
+@is_logged_in
+def update_category(name):
+    if request.method == "POST":
+        new_name = request.form['catname']
+        if new_name:
+            man.create_categories(new_name)
+            man.categories[new_name] = man.categories[name]
+            man.delete_category(name)
+            return redirect(url_for('user'))
+    else:
+        return render_template('updatecategory.html', name=name)
 @app.route('/delete/<name>')
 @is_logged_in
 def remove(name):
     man.delete(name)
+    return redirect(url_for('user'))
+
+@app.route('/delete_category/<name>')
+@is_logged_in
+def delete_category(name):
+    man.delete_category(name)
     return redirect(url_for('user'))
 
 @app.route('/login', methods=['GET', 'POST'])

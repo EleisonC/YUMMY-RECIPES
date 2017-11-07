@@ -30,7 +30,7 @@
 
  
     </style>
-    <title>Add Food Recipe</title>
+    <title>update category</title>
 </head>
 <body>
     <div class="row">
@@ -53,38 +53,28 @@
         
             <div class="row">
                 <div class="col-3">
-                    <label>Name</label>
+                    <label> Old Name</label>
                 </div>
 
                 <div class="col-3">
-                    <input type="text"  name="name" >
+                    {{ name }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-3">
-                    <label>Category name</label>
-                </div>
-
-                <div class="col-3">
-                    <input type="text"  name="category" >
-                </div>
-            </div>
-            <div class="row">
-
-                    <div class="col-3"> 
-                        <label>Instructions:</label>
-                    </div>
-                    <div class="col-3">
-                        <textarea rows="4" cols="50" name="instructions" ></textarea>
+                        <label>New Name</label>
                     </div>
     
+                    <div class="col-3">
+                        <input type="text" size="30" name="catname" >
+                </div>
             </div>
        
         <button class="button" type="submit" style="    align-content: center;
         
         margin-left: 112px;
         margin-top: 27px;
-        padding: 10px;">CREATE</button>
+        padding: 10px;">UPDATE</button>
     </div>
     </form>
     
