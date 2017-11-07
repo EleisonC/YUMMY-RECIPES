@@ -8,7 +8,8 @@ class UserTestCase(unittest.TestCase):
 
     def test_create_food_recipe(self):
         """ tests if a user can add a food recipe name and the instructions"""
-        self.chris.create_food_recipe("fried eggs","eggs, oil, fire")
+        self.chris.create_categories("breakfast")
+        self.chris.create_food_recipe('breakfast',"fried eggs","eggs, oil, fire")
         self.assertEqual(self.chris.food_recipe,{'fried eggs': ['eggs, oil, fire']})
 
     def test_view(self):
