@@ -86,9 +86,10 @@ def update(name):
     if request.method == "POST":
         new_name = request.form['name']
         new_steps = request.form['instructions']
-        if new_name and new_steps:
+        category_nam = request.form['category']
+        if category_nam and new_name and new_steps:
             man.delete(name)
-            man.create_food_recipe(new_name,new_steps)
+            man.create_food_recipe(category_nam,new_name,new_steps)
             return redirect(url_for('user'))
         
     
