@@ -1,47 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"type="text/css" href="{{ url_for('static', filename='user.css') }}">
-    <title>user-dashboard</title>
-</head>
-<body>
-    <div class="row">
-        <div class="col-1">
-            <H1>YUMMY RECIPES</H1>
-        </div>
-        <div class="col-2">
-                <h2>HELLO</h2>
-                <a href="logout"><button class="button" type="submit">LOG-OUT</button></a>
-        </div>
-        <h2>All Your categories</h2> 
-        <a href="{{ url_for('add_category') }}" style="    margin-top: 2%;
-        margin-left: 8%;"><button class="button" type="submit">Add Categories</button></a>
-        <a href="{{ url_for('add_food_recipe') }}" style="    margin-top: 2%;
-        margin-left: 8%;"><button class="button" type="submit">Add Recipe</button></a>
-
-    </div class="row">
-    {%for item in food.keys()%}
-        <div class="col-4" style="border: 3px solid;
-        margin-top: 4%;
-        background-color: burlywood;
-        width: 100%;">
-            <ul>
-                
-                   
-                    <a href="/category/{{ item }}"><h2>{{ item }}</h2></a>
-                    <a href="/update_category/{{item}}"><button>UPDATE</button></a>
-                    <a href="/delete_category/{{ item }}"><button>DELETE</button></a>
-                   
-                
-            </ul>
-           
-        </div>
-    {%endfor%}
-    <div>
-
+{% extends "layout.html" %}
+{% block body %}
+   
+    <div class="row mt-5">
+                <div class="col-9">
+                    <H1>YUMMY RECIPES</H1>
+                </div>
+                <div class="col-3">
+                    <a href="logout"><button class="btn btn-primary" type="submit">LOG-OUT</button></a>
+                </div>
     </div>
-</body>
-</html>
+<div class="card " style="width: auto; margin-left:0%">
+    <div class="card-header">
+    <div class="row ">
+        <div class="col-6">
+        <h2>All Your categories</h2> 
+        </div>
+        <div class="col-3">
+        <a href="{{ url_for('add_category') }}"><button class="btn btn-dark btn-lg" type="submit">Add Categories</button></a>
+        </div>
+        <div class="col-3">
+        <a href="{{ url_for('add_food_recipe') }}"><button class="btn btn-dark btn-lg" type="submit">Add Recipe</button></a>
+        </div>
+    </div>
+    </div>
+        <div class="card-body">
+                    
+                        {%for item in food.keys()%}
+                        <div class="row mt-3 mb-2">  
+                            <div class="col-6">
+                                <a href="/category/{{ item }}"><h2>{{ item }}</h2></a>
+                            </div>
+                        <div class="col-3">
+                            <a href="/update_category/{{item}}"><button class="btn btn-dark btn-lg" type="submit">UPDATE</button></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="/delete_category/{{ item }}"><button class="btn btn-dark btn-lg" type="submit">DELETE</button></a>
+                        </div>
+                        </div>
+                        {%endfor%}    
+                
+                    
+            </div>
+        
+</div>
+    
+    
+    
+    
+{% endblock %}
+
+

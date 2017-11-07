@@ -1,93 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="">
-    <style>
-    .row{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;  
-}
-.col-1{
-    width: 50%;
-}
-.col-2{
-    width: 50%;
-    
-}
-.col-2 a button{
-    margin-left: 70%;
-    margin-top: 5%;
-}
-
-.col-3{
-    padding-left: 20px;
-    padding-bottom: 20px;
-}
-
- 
-    </style>
-    <title>Add Food Recipe</title>
-</head>
-<body>
-    <div class="row">
-        <div class="col-1">
-            <H1>YUMMY RECIPES</H1>
-        </div>
-        <div class="col-2">
-                <h2 style="margin-left: 60%;">HELLO</h2>
-                <a href="{{ url_for('logout') }}"><button class="button" type="submit">LOG-OUT</button></a>
+{% extends "layout.html" %}
+{% block body %}
+<div class="row mt-5">
+        <div class="col-9">
+                <H1>YUMMY RECIPES</H1>
+            </div>
+            <div class="col-3">
+                <a href="{{ url_for('user') }}"><button class="btn btn-primary" type="button">HOME</button></a>
+                <a href="logout"><button class="btn btn-primary" type="submit">LOG-OUT</button></a>
         </div>
     </div>
-    <form method="POST" action="" style="border: 1px solid rgb(12, 14, 14);
-    margin-left: 27%;
-    margin-right: 38%;
-    padding: 3%;
-    padding-top: 0%;
-    margin-top: 8%;
-    background: rgb(252, 248, 248);">
-    <div class="row-2"style="padding-top: 28px;">
-        
-            <div class="row">
-                <div class="col-3">
-                    <label> Old Name</label>
-                </div>
-
-                <div class="col-3">
-                    {{ name }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                        <label>New Name</label>
+    <div class="card mt-5" style="width: 50rem;">
+            <h4 class="card-header text-center">Add Recipe</h4>
+            <div class="card-body">
+            <form method="POST" action="" >
+                <div class="m-5">
+                    <div class="form-group">
+                        <label> Old Name:</label>
+                        {{ name }}
                     </div>
+                    <div class="form-group ">
+                        <label>Name</label>      
+                        <input type="text" name ="name"  class="form-control">   
+                    </div>
+                    <div class="form-group">
+                            <label>Category name</label>
+                            <input type="text"  name="category" class="form-control">
+                    </div>
+                    <div class="form-group">
+                            <label>Instructions</label>
+                            <textarea class="form-control" rows="4" cols="50" name="instructions" ></textarea>
     
-                    <div class="col-3">
-                        <input type="text" size="30" name="name" >
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">CREATE</button>
                 </div>
+            </form>
             </div>
-            <div class="row">
-
-                    <div class="col-3"> 
-                        <label>Instructions:</label>
-                    </div>
-                    <div class="col-3">
-
-<textarea rows="4" cols="50" name="instructions" ></textarea>
-                    </div>
-    
-            </div>
-       
-        <button class="button" type="submit" style="    align-content: center;
-        
-        margin-left: 112px;
-        margin-top: 27px;
-        padding: 10px;">UPDATE</button>
     </div>
-    </form>
     
-</body>
-</html>
+{% endblock %}

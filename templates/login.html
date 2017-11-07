@@ -1,49 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='log.css') }}">
-    
-    <title>YUMMY RECIPES</title>
-</head>
-<body>
-    <div class="row">
-        <div class="col-1">
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="row mt-5">
+        <div class="col-9">
             <H1>YUMMY RECIPES</H1>
         </div>
-        <div class="col-2">
-                <a href="signup"><button class="button" type="submit">SIGN UP</button></a>
+        <div class="col-3">
+                <a href="signup"><button class="btn btn-primary" type="submit">SIGN UP</button></a>
         </div>
     </div>
-    {% if error %}<p class='error'><strong>Error:</strong> {{ error }}{% endif %}
+    
+        <div class="card mt-5" style="width: 50rem;">
+                <h4 class="card-header text-center">Please Log In</h4>
+                <div class="card-body">
+                    
+
+        {% if error %}<p class='error'><strong>Error:</strong> {{ error }}{% endif %}
         <form  action="{{ url_for('login') }}" method="POST">
-        <div class="row-2">
-            <H2>LOGIN</H2>
-            <div class="row">
-                <div class="col-3">
-                    <label>USERNAME</label>  
-                </div>
-                <div class="col-3">    
-                        <input type="text" name = "username" placeholder="username">
-                </div>
+        
+        <div class="m-5">
+            <div class="form-group ">
+                <label>USERNAME</label>      
+                <input type="text" name = "username" placeholder="username" class="form-control">   
             </div>
-            <div class="row">
-                <div class="col-3">
-                    <label>PASSWORD</label>
-                </div>
-                <div class="col-3">
-                        <input type="password" name = "password" placeholder="password">
-                </div>
+            <div class="form-group">
+                    <label>PASSWORD</label>      
+                    <input type="password" name = "password" placeholder="password" class="form-control">   
+                
             </div>
-            <button class="button" type="submit" style="    align-content: center;
-            
-            margin-left: 112px;
-            margin-top: 27px;
-            padding: 10px;">LOGIN</button>
+            <button  type="submit" class="btn btn-success">LOGIN</button>
         </div>
         </form>
-    
-</body>
-</html>
+
+
+                    
+                </div>
+              </div>
+{% endblock %}
