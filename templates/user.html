@@ -12,15 +12,13 @@
 <div class="card " style="width: auto; margin-left:0%">
     <div class="card-header">
     <div class="row ">
-        <div class="col-6">
+        <div class="col-9">
         <h2>All Your categories</h2> 
         </div>
-        <div class="col-3">
-        <a href="{{ url_for('add_category') }}"><button class="btn btn-dark btn-lg" type="submit">Add Categories</button></a>
+        <div class="col-2">
+        <a href="/{{username}}/add_category"><button class="btn btn-dark btn-lg">Add Categories</button></a>
         </div>
-        <div class="col-3">
-        <a href="{{ url_for('add_food_recipe') }}"><button class="btn btn-dark btn-lg" type="submit">Add Recipe</button></a>
-        </div>
+        
     </div>
     </div>
         <div class="card-body">
@@ -31,7 +29,7 @@
                                 <a href="/category/{{ item }}"><h2>{{ item }}</h2></a>
                             </div>
                         <div class="col-3">
-                            <a href="/update_category/{{item}}"><button class="btn btn-dark btn-lg" type="submit">UPDATE</button></a>
+                            <a href="/update_category/{{item}}"><button class="btn btn-dark btn-lg" >UPDATE</button></a>
                         </div>
                         <div class="col-3">
                             <a href="/delete_category/{{ item }}"><button class="btn btn-dark btn-lg" type="submit">DELETE</button></a>
