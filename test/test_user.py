@@ -4,7 +4,7 @@ from app.user import User
 
 class UserTestCase(unittest.TestCase):
     def setUp(self):
-        self.chris = User()
+        self.chris = User("user","123")
 
     def test_create_food_recipe(self):
         """ tests if a user can add a food recipe name and the instructions"""
