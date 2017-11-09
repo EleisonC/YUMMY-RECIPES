@@ -1,7 +1,9 @@
 import sys
 
 class User(object):  
-    def __init__(self):
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
         self.food_recipe = {}
         self.categories = {}
 
