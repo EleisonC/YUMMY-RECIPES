@@ -32,11 +32,14 @@ def register():
         passwordcm = request.form['passwordo']
         if username in users.keys():
             error = 'username already exists'
+        if password != passwordcm:
+            error = 'passwords dont match'
         else:   
-            if username and password and password==passwordcm:
+            if username and password :
                 usr = User(username,password)
                 users[usr.username] = usr
                 return redirect(url_for('login',message='You have succesfully registered'))
+            
     return render_template('signup.html', error=error)
 
 
