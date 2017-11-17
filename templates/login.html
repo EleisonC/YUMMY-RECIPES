@@ -16,6 +16,13 @@
                     
                     
         {% if error %}<p class='error'><strong>Error:</strong> {{ error }}{% endif %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form  action="{{ url_for('login') }}" method="POST">
         
         <div class="m-5">

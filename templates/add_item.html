@@ -11,6 +11,7 @@
     <div class="card mt-5" style="width: 50rem;">
             <h4 class="card-header text-center">Add Recipe</h4>
             <div class="card-body">
+                    {% if error %}<p class='error'><strong>Error:</strong> {{ error }}{% endif %}
             <form method="POST" action="" >
                 <div class="m-5">
                     <div class="form-group ">
