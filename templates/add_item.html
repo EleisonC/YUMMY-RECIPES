@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row mt-5">
+    <div class="col-9">
+            <H1>YUMMY RECIPES</H1>
+        </div>
+        <div class="col-3">
+            <a href="/{{username}}"><button class="btn btn-primary" type="button">HOME</button></a>
+            <a href="logout"><button class="btn btn-primary" type="submit">LOG-OUT</button></a>
+    </div>
+    <div class="card mt-5" style="width: 50rem;">
+            <h4 class="card-header text-center">Add Recipe</h4>
+            <div class="card-body">
+                    {% if error %}<p class='error'><strong>Error:</strong> {{ error }}{% endif %}
+            <form method="POST" action="" >
+                <div class="m-5">
+                    <div class="form-group ">
+                        <label>Name</label>      
+                        <input type="text" name ="name"  class="form-control">   
+                    </div>
+                    <div class="form-group">
+                            <label>Category name</label>
+                            <p class="from-control">{{ name }}</p>
+                    </div>
+                    <div class="form-group">
+                            <label>Instructions</label>
+                            <textarea class="form-control" rows="4" cols="50" name="instructions" ></textarea>
+    
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">CREATE</button>
+                </div>
+            </form>
+            </div>
+    
+{% endblock %}
+
